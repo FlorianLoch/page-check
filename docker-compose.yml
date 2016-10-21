@@ -1,0 +1,11 @@
+db_mongo:
+    image: mongo:latest
+    volumes:
+    - ./mongo-persistence/:/data/db
+
+app:
+    image: node:latest
+    volumes:
+    - .:/usr/src/app
+    links:
+    - db_mongo
